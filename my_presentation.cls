@@ -3,9 +3,26 @@
 
 \renewcommand{\normalsize}{\fontsize{10}{12}\selectfont}
 
-\usepackage[paperwidth=100mm, paperheight=100mm]{geometry}
+\usepackage[
+  paperwidth=100mm, 
+  paperheight=100mm, 
+  vmargin=2mm, 
+  hmargin=5mm,
+  headheight=8mm,
+  footskip=6mm,
+  includeheadfoot
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage[usenames,dvipsnames]{color}
 
 
-\newcommand{\firstpagetitle}[1]{
-  #1
+\newcommand{\firstpage}[1]{
+  \thispagestyle{empty} #1 \newpage
 }
+
+\pagestyle{fancy}
+\lhead{\color{Gray} left header}
+\rhead{right header}
+\cfoot{left footer}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
