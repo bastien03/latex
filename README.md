@@ -2,4 +2,4 @@
 
 ## Basic commands
 
- - compile latex document: `pdf2latex document.tex`
+ - compile latex document: `pdflatex document.tex`
