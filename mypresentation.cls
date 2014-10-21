@@ -7,8 +7,8 @@
 % --------
 
 \usepackage[
-  paperwidth=100mm, 
-  paperheight=100mm, 
+  paperwidth=128mm, 
+  paperheight=96mm, 
   vmargin=2mm, 
   hmargin=5mm,
   headheight=8mm,
@@ -21,27 +21,35 @@
 	dvipsnames
 ]{color}
 \usepackage{datetime}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mdframed}
+\usepackage{bookman}
 
 
 % ----------------------------------------------------------------
 % Commands
 % --------
 
+\newcommand{\changefont}[3]{
+  \fontfamily{#1} 
+  \fontseries{#2} 
+  \fontshape{#3} 
+  \selectfont
+}
+
 % The firstpage command has 1 param:
 %   - the title of the page
 \newcommand{\firstpage}[1]{%
-  \thispagestyle{empty}%
+  \thispagestyle{firststyle}%
   \clearpage
-	\vspace*{\fill}
+  \pagecolor{MidnightBlue!90}
 	  \begin{center} %
-	  		\Huge{#1} %
+        \fontsize{40pt}{30pt}\selectfont 
+        \textcolor{white}{#1}
 	  \end{center}% 
-	\vfill % equivalent to \vspace{\fill}
-	\begin{center}
-      \small{\today}
-	\end{center}
   \clearpage
   \newpage%
+  \pagecolor{white}
 }
 
 \renewcommand{\section}[1]{
@@ -58,10 +66,28 @@
 % Style
 % -----
 
+% Style for normal pages
 \pagestyle{fancy}
 \lhead{\color{Gray} left header}
 \rhead{right header}
 \cfoot{left footer}
 
+% Style for the first page
+\fancypagestyle{firststyle}
+{
+  % clear header and footer
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  \renewcommand{\footrulewidth}{0pt}
+  
+  % define footer with white background
+  \fancyfoot[C]{
+    \begin{mdframed}[backgroundcolor=white, linecolor=white, leftmargin=-17, rightmargin=-12]
+      \begin{center}
+        \small{\today}
+      \end{center}
+    \end{mdframed}
+  }
 
-
+  \footskip=3pt
+}
