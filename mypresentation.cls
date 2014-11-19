@@ -25,6 +25,9 @@
 \usepackage{mdframed}
 \usepackage{bookman}
 \usepackage{bookmark}
+\usepackage{sidecap}
+\usepackage{graphicx}
+\usepackage{wrapfig}
 
 % ----------------------------------------------------------------
 % Commands
@@ -43,9 +46,30 @@
   \thispagestyle{firststyle}%
   \clearpage
   \pagecolor{MidnightBlue!90}
+  
+  \begin{wrapfigure}{L}{\textwidth}
+    \begin{center}
+      \includegraphics[width=0.4\textwidth]{cover}
+    \end{center}
+    \begin{center} %
+      \fontsize{15pt}{15pt}\selectfont 
+      \textcolor{white}{#1 - #2}
+    \end{center}
+  \end{wrapfigure}
+  
+  \clearpage
+  \newpage%
+  \pagecolor{white}
+}
+
+\newcommand{\lastpage}[1]{%
+  \clearpage
+  \fancyhf{}
+  \renewcommand{\footrulewidth}{0pt} % remove footer line
+  \pagecolor{MidnightBlue!90}
 	  \begin{center} %
         \fontsize{40pt}{30pt}\selectfont 
-        \textcolor{white}{#1 \newline \newline #2}
+        \textcolor{white}{#1}
 	  \end{center}% 
   \clearpage
   \newpage%
