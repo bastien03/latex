@@ -31,11 +31,20 @@
 \usepackage{lastpage}
 \usepackage{nameref}
 
+
 % ----------------------------------------------------------------
 % Commands
 % --------
 
 \newcommand{\Color}[1]{\colorlet{ColorVariable}{#1}}
+\newcommand{\Title}[1]{\newcommand{\pdftitle}{#1}}
+\AtBeginDocument{
+  \hypersetup{%
+    pdfauthor=Bastien Mary,
+    pdftitle={\pdftitle}
+  }%
+}
+
 
 \newcommand{\changefont}[3]{
   \fontfamily{#1} 
