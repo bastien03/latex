@@ -28,6 +28,8 @@
 \usepackage{sidecap}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{lastpage}
+\usepackage{nameref}
 
 % ----------------------------------------------------------------
 % Commands
@@ -67,10 +69,12 @@
   \fancyhf{}
   \renewcommand{\footrulewidth}{0pt} % remove footer line
   \pagecolor{MidnightBlue!90}
-	  \begin{center} %
+    \vspace*{\fill}
+      \begin{center} %
         \fontsize{40pt}{30pt}\selectfont 
         \textcolor{white}{#1}
-	  \end{center}% 
+      \end{center}%
+    \vspace*{\fill}
   \clearpage
   \newpage%
   \pagecolor{white}
@@ -95,9 +99,18 @@
 % Style for normal pages
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt} % remove header
-\cfoot{footer}
+\renewcommand{\footrulewidth}{0pt} % remove footer line
+\cfoot{
+  \begin{flushright}
+    \colorbox{MidnightBlue!90}{
+      \textcolor{white}{
+        \thepage/\pageref{LastPage}
+      }
+    }
+  \end{flushright}
+}
 \addtolength{\topmargin}{2mm}
-\footskip=10pt
+\footskip=0pt
 
 % Style for the first page
 \fancypagestyle{firststyle}
