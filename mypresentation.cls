@@ -35,6 +35,8 @@
 % Commands
 % --------
 
+\newcommand{\Color}[1]{\colorlet{ColorVariable}{#1}}
+
 \newcommand{\changefont}[3]{
   \fontfamily{#1} 
   \fontseries{#2} 
@@ -47,7 +49,7 @@
 \newcommand{\firstpage}[2]{%
   \thispagestyle{firststyle}%
   \clearpage
-  \pagecolor{MidnightBlue!90}
+  \pagecolor{ColorVariable}
   
   \begin{wrapfigure}{L}{\textwidth}
     \begin{center}
@@ -68,7 +70,7 @@
   \clearpage
   \fancyhf{}
   \renewcommand{\footrulewidth}{0pt} % remove footer line
-  \pagecolor{MidnightBlue!90}
+  \pagecolor{ColorVariable}
     \vspace*{\fill}
       \begin{center} %
         \fontsize{40pt}{30pt}\selectfont 
@@ -83,7 +85,7 @@
 \renewcommand{\section}[1]{ 
   \hypertarget{#1}{}
   \bookmark[level=section, dest=#1]{#1}
-  \Huge{\textcolor{MidnightBlue!90}{#1}} \normalsize
+  \Huge{\textcolor{ColorVariable}{#1}} \normalsize
   \newline \newline
 }
 \renewcommand{\normalsize}{
@@ -102,7 +104,7 @@
 \renewcommand{\footrulewidth}{0pt} % remove footer line
 \cfoot{
   \begin{flushright}
-    \colorbox{MidnightBlue!90}{
+    \colorbox{ColorVariable}{
       \textcolor{white}{
         \thepage/\pageref{LastPage}
       }
