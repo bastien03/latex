@@ -55,14 +55,14 @@
 
 % The firstpage command has 1 param:
 %   - the title of the page
-\newcommand{\firstpage}[2]{%
+\newcommand{\firstpage}[3]{%
   \thispagestyle{firststyle}%
   \clearpage
   \pagecolor{ColorVariable}
   
   \begin{wrapfigure}{L}{\textwidth}
     \begin{center}
-      \includegraphics[width=0.4\textwidth]{cover}
+      \includegraphics[width=0.4\textwidth]{#3}
     \end{center}
     \begin{center} %
       \fontsize{15pt}{15pt}\selectfont 
